@@ -50,24 +50,26 @@ class UserController{
         $this->view->showUsers($logged, $users);
     }
     public function verifyUser(){
-       $user = $_POST['user'];
-       $pass = $_POST['pass']; 
-       $username = $this->model->getPassword($user);
-       
-       if(!empty($user) && !empty($pass)&& !(empty($username))){    
-        if(password_verify($pass, $username->pass)){
-           session_start();
-           $_SESSION['ID_USER'] = $username->id_user;
-           $_SESSION['USERNAME'] = $username->user;
-           $_SESSION['LAST_ACTIVITY'] = time();
-        $this->viewProducts->showHomeLocation();
-       }else{
-           $this->viewProducts->Home(0);
-       }
-    }else{
-        $this->viewProducts->showError();
-    }
-    }
+        $user = $_POST['user'];
+        $pass = $_POST['pass']; 
+        $username = $this->model->getPassword($user);
+        
+        if(!empty($user) && !empty($pass)&& !(empty($username))){    
+            if(password_verify($pass, $username->pass)){
+                session_start();
+                $_SESSION['ID_USER'] = $username->id_user;
+                $_SESSION['USERNAME'] = $username->user;
+                $_SESSION['LAST_ACTIVITY'] = time();
+                $this->viewProducts->showHomeLocation();
+            }
+            else{
+                $this->viewProducts->Home(0);
+            }
+        }
+        else{
+            $this->viewProducts->showError();
+        }
+}
     function loggin($user){
         $username = $this->model->getPassword($user);
         session_start();
@@ -92,7 +94,7 @@ class UserController{
         $this->model->deleteUser($user);
         $this->view->ShowHomeLocation();
     }
-    // Cambiar contraseña? 
+
    function updateUser($params = null){
         $user = $params[':ID'];
         $access = $_POST['permisos'];

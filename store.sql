@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2020 a las 03:46:58
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.10
+-- Tiempo de generación: 28-07-2021 a las 07:43:13
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id_category`, `category`) VALUES
-(18, 'Buzo');
+(18, 'Buzo'),
+(19, 'Zapatillas');
 
 -- --------------------------------------------------------
 
@@ -51,6 +52,16 @@ CREATE TABLE `comment` (
   `score` int(11) NOT NULL,
   `id_product` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comment`
+--
+
+INSERT INTO `comment` (`id_comment`, `comment`, `score`, `id_product`) VALUES
+(63, 'Muy buen buzo', 10, 66),
+(64, 'La tela es de mala calidad', 1, 68),
+(65, 'Alta capucha', 5, 69),
+(66, 'Se ensucian facilmente', 7, 70);
 
 -- --------------------------------------------------------
 
@@ -73,8 +84,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id_product`, `nombre`, `price`, `stock`, `descripcion`, `imagen`, `id_category`) VALUES
-(66, 'Buzo3', 3333, 3333, 'buzo22', 'img/5fbf13de49969.jpg', 18),
-(68, 'aa', 2, 2112, '', 'img/5fbf13fb74133.jpg', 18);
+(66, 'Buzo3', 3333, 3333, 'buzo22', 'img/6100e7add90c5.jpg', 18),
+(68, 'Buzo', 2, 2112, '', 'img/6100e7b8ece49.jpg', 18),
+(69, 'Campera', 7000, 3, 'Alta campera', 'img/6100e7d23f4dc.jpg', 18),
+(70, 'Zapatilla Blanca Adidas', 15000, 6, 'Alta Zapa', 'img/6100e7ec16c77.jpg', 19);
 
 -- --------------------------------------------------------
 
@@ -85,7 +98,7 @@ INSERT INTO `product` (`id_product`, `nombre`, `price`, `stock`, `descripcion`, 
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `user` varchar(20) NOT NULL,
-  `pass` varchar(250) NOT NULL,
+  `pass` varchar(255) NOT NULL,
   `access` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -94,11 +107,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `user`, `pass`, `access`) VALUES
-(2, 'admin', '$2y$12$45g40/fy5QBMxqkDVgJZuugRPZG9PLIEiYvlSwfn/jlA2PZk4rsDm', 2),
-(10, '1233', '$2y$10$7BgW.37DofJclwpSFPsKLuTPR4fjQU50on7DHjAho3USrJIDRUxfi', 1),
-(14, 'soynuevo', '$2y$10$W7C/l9Qt3V7AbjbREHIFOu/JzmuNPNXI54sa1RzAIESuNBSKxnBYi', 1),
-(15, 'hola', '$2y$10$KjVspF2U.O1EzfKIN.uro.aDwZBU11HTPtNtuYju1yOLryeZzQgHq', 1),
-(16, 'a', '$2y$10$55d8miunD46IjgjwNt36NOKK/4V9yRN2DgR5MqkGUvfb5GJ2FksGS', 1);
+(20, 'admin', '$2y$10$bgCEat2iUnwDRI62dN.mWO2t22Evis5nWhiMYtChgIWTuh6Mr0l9e', 2);
 
 --
 -- Índices para tablas volcadas
@@ -138,25 +147,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `category`
 --
 ALTER TABLE `category`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas

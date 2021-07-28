@@ -15,13 +15,13 @@ class ProductModel{
     }
     function getProductsLimit($desde, $por_pagina){ 
         $sentencia = $this->db->prepare("SELECT product.*, category.* FROM product INNER JOIN category ON product.id_category = category.id_category LIMIT $desde, $por_pagina"); 
-        $sentencia->execute(array($desde, $por_pagina)); 
+        $sentencia->execute(); 
         return $sentencia->fetchAll(PDO::FETCH_OBJ); 
     }
 
     function getSearchedProducts($namefield){
         $sentencia = $this->db->prepare("SELECT product.*, category.* FROM product INNER JOIN category ON product.id_category = category.id_category WHERE nombre LIKE '%$namefield%'");
-        $sentencia->execute(array($namefield));
+        $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
     
@@ -74,7 +74,7 @@ class ProductModel{
     }
     function searchPriceProducts($minPrice, $maxPrice){
         $sentencia = $this->db->prepare("SELECT product.*, category.* FROM product INNER JOIN category ON product.id_category = category.id_category WHERE price BETWEEN $minPrice AND $maxPrice");
-        $sentencia-> execute(array($minPrice, $maxPrice));
+        $sentencia-> execute(array());
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 }

@@ -123,13 +123,19 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block carrusel" src="images/camperaAdidas.jpg" alt="First slide">
+                            <img class="d-block carrusel" src="images/camperaazul.jpg" alt="First slide">
                         </div>
                         <div class="carousel-item">
                             <img class="d-block carrusel" src="images/Conjunto_Negro_FN0938_01_laydown.jpg" alt="Second slide">
                         </div>
                         <div class="carousel-item">
                             <img class="d-block carrusel" src="images/zapatillas-zx-2k-boost (1).jpg" alt="Third slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block carrusel" src="images/buzonegro (1).jpg" alt="Fourth slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block carrusel" src="images/buzorojo.jpg" alt="Fourth slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

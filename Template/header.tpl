@@ -46,7 +46,7 @@
                 {if $logged==0}
                     <form action="verifyUser" method="POST" class="form-inline">
                         <div class="form-group mb-2">
-                            <input type="text" class="form-control" name="user" placeholder="user">
+                            <input type="text" class="form-control" name="user" placeholder="User">
                         </div>
                         <div class="form-group mx-sm-2 mb-2">
                             <input type="password" name="pass" class="form-control" id="inputPassword2" placeholder="Password">
